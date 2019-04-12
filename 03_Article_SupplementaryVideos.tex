@@ -1,0 +1,27 @@
+%  CONFIGURE NEW SINGLE-PAGE FORMAT 
+
+\onecolumn % go back to one column
+\fancyhead{} % make sure we get no headers
+\renewcommand{\floatpagefraction}{0.1}
+\lfoot[\bSupInf]{\dAuthor}
+\rfoot[\dAuthor]{\cSupInf}
+\newpage
+
+\captionsetup*{format=largeformat} % make figure legend slightly larger than in the paper
+\setcounter{figure}{0} % reset figure counter for Supplementary Video Figures
+%\setcounter{page}{1} % reset page count
+\makeatletter 
+\renewcommand{\thefigure}{SV\@arabic\c@figure} % make Figure legend start with Figure S
+\makeatother
+
+%  MAIN TEXT 
+\newpage
+\section*{Supplementary Videos}
+
+\begin{SCfigure*}[50][!ht]
+\includegraphics[width=0.5\linewidth]{Figures/temp.png}
+\caption{\textbf{Julia, ocean child calls me.}\\
+A typical caption would go here. We use a thumbnail version of the video file as the figure.\\
+Time, seconds. Scale bar, \SI{10}{\micro\meter}.}
+\label{videosupp:julia}
+\end{SCfigure*}

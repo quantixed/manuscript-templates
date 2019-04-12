@@ -1,0 +1,47 @@
+%  CONFIGURE NEW SINGLE-PAGE FORMAT 
+
+\onecolumn % go back to one column
+\fancyhead{} % make sure we get no headers
+\renewcommand{\floatpagefraction}{0.1}
+\lfoot[\bSupInf]{\dAuthor}
+\rfoot[\dAuthor]{\cSupInf}
+\newpage
+
+\captionsetup*{format=largeformat} % make figure legend slightly larger than in the paper
+\setcounter{figure}{0} % reset figure counter for Supp. Figures
+\setcounter{equation}{0} % reset equation counter for Supp. Equations
+%\setcounter{page}{1} % reset page count
+\makeatletter 
+\renewcommand{\thefigure}{S\@arabic\c@figure} % make Figure legend start with Figure S
+\makeatother
+\def\theequation{S\arabic{equation}}
+
+%  MAIN TEXT 
+
+\newpage
+\section*{Supplementary Information}
+
+\begin{SCfigure*}[\sidecaptionrelwidth][!ht]
+\centering
+\includegraphics[width=0.75\linewidth]{Figures/temp.png}
+\caption{\textbf{Blackbird singing in the dead of night}\\
+\textbf{A}, Blackbird singing in the dead of night
+Take these broken wings and learn to fly
+All your life
+You were only waiting for this moment to arise.
+Blackbird singing in the dead of night
+Take these sunken eyes and learn to see
+All your life 
+You were only waiting for this moment to be free.
+Blackbird fly Blackbird fly
+Into the light of the dark black night.
+Blackbird fly Blackbird fly
+Into the light of the dark black night.
+Blackbird singing in the dead of night
+Take these broken wings and learn to fly
+All your life
+You were only waiting for this moment to arise
+You were only waiting for this moment to arise
+You were only waiting for this moment to arise..}
+\label{suppfig:blackbird}
+\end{SCfigure*}
