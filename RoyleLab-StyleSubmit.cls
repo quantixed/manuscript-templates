@@ -1,14 +1,13 @@
 %%
-%% This is file `RoyleLab-StyleBioRxiv.cls'
-%% Forked from `zHenriquesLab-StyleBioRxiv.cls',
+%% This is file `RoyleLab-StyleSubmit.cls'
+%% Forked from `RoyleLab-StyleBioRxiv.cls',
 %%
-%% Class files for pre-print servers such as BioRXiv
+%% Class files for journal submission
 %%
-%% Copyright (C) Ricardo Henriques <r.henriques@ucl.ac.uk>
 %% 
 \typeout{Document Class `RoyleLab' <12-April-2019>.}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{RoyleLab-StyleBioRxiv}
+\ProvidesClass{RoyleLab-StyleSubmit}
   [2019/04/12 revision by SJR]
 
 %% Load base class
@@ -16,7 +15,6 @@
 
 %% define new needed boolean variables
 \newif\if@tmptwocolumn  \@tmptwocolumnfalse
-\newif\if@times         \@timesfalse
 \newif\if@helvet         \@helvetfalse
 
 %% Options
@@ -28,22 +26,20 @@
 \DeclareOption{watermark}{\watermarktrue}
 
 \DeclareOption{draft}{\PassOptionsToClass{draft}{article}}
-\DeclareOption{times}{\@timestrue}
 \DeclareOption{helvet}{\@helvettrue}
 \DeclareOption{twoside}{\@twosidetrue}
 \DeclareOption{twocolumn}{\@tmptwocolumntrue}
 \DeclareOption{onecolumn}{\@tmptwocolumnfalse}
 
-\ExecuteOptions{helvet,twoside,twocolumn}
+\ExecuteOptions{helvet,onecolumn}
 \ProcessOptions
 
-%% and math support and fonts
-\RequirePackage{amsmath,amsfonts,amssymb}
-\RequirePackage{mathptmx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Royle lab dependencies - Start %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{amsmath,amsfonts,amssymb}
+\RequirePackage{mathptmx}
 \RequirePackage{xcolor}
 \RequirePackage{authblk}
 \RequirePackage[latin1,utf8]{inputenc}
@@ -69,12 +65,15 @@
 \RequirePackage[misc]{ifsym} % For the \Letter symbol
 \RequirePackage{bbding} % For the \Envelope symbol
 \RequirePackage[a4paper,
-                total={170mm,247mm},
-                left=20mm,
+                total={160mm,247mm},
+                left=25mm,
                 top=25mm]{geometry}
 \RequirePackage[labelfont={bf,sf},%
                 labelsep=period,%
                 figurename=Figure]{caption}
+%% line numbers
+\RequirePackage{lineno}
+\linenumbers
 
 %% Hyperlinking
 \RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -86,26 +85,12 @@
 \crefname{figure}{Figure}{figures}
 \crefname{section}{Sup. Note}{notes}
 \crefname{suppfigure}{Supplementary Figure}{supplementary figures}
-% \crefname{chapter}{Chapter}{Chapters}
-% \crefname{section}{Section}{Sections}
-% \crefname{subsection}{Section}{Sections}
-% \crefname{subsubsection}{Section}{Sections}
-% \crefname{figure}{Figure}{Figures}
-% \crefname{table}{Table}{Tables}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Royle lab dependencies - End %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Fonts
-\if@helvet\RequirePackage{helvet}\fi
-
 %% sizes and margins
-%\topmargin      -16.0mm
-%\oddsidemargin  -11.0mm
-%\evensidemargin -11.0mm
-%\textwidth        175mm
-%\textheight       243mm
 \columnsep          7mm
 \headsep          6.3mm
 \headheight        12pt
@@ -180,10 +165,10 @@
 \newcommand{\footerfont}{\normalfont\sffamily\fontsize{7}{9} \selectfont}
 \newcommand{\titlefont}{\fontfamily{lmss}\bfseries\fontsize{18pt}{20pt}\selectfont}
 \newcommand{\dropcapfont}{\fontfamily{lmss}\bfseries\fontsize{22pt}{24pt}\selectfont}
-\newcommand{\datesfont}{\normalfont\sffamily\fontsize{7}{8}\selectfont}
-\newcommand{\absfont}{\normalfont\sffamily\bfseries\fontsize{8}{11}\selectfont}
-\newcommand{\keywordsfont}{\normalfont\rmfamily\fontsize{7}{10}\selectfont}
-\newcommand{\copyrightfont}{\normalfont\rmfamily\fontsize{6}{8}\selectfont}
+\newcommand{\datesfont}{\normalfont\sffamily\fontsize{7}{9}\selectfont}
+\newcommand{\absfont}{\normalfont\sffamily\bfseries\fontsize{10}{12}\selectfont}
+\newcommand{\keywordsfont}{\normalfont\rmfamily\fontsize{10}{11}\selectfont}
+\newcommand{\copyrightfont}{\normalfont\rmfamily\fontsize{10}{11}\selectfont}
 
 %% Set document color scheme
 \definecolor{black50}{gray}{0.5} % 50% black for hrules
@@ -192,33 +177,17 @@
 \definecolor{color2}{RGB}{16,131,16} %
 
 %% Author and affiliation
-\setlength{\affilsep}{8.5pt} % 16.5pts between base of author line and base of affil line
-\renewcommand\Authfont{\color{color0}\normalfont\sffamily\bfseries\fontsize{9}{11}\selectfont}
-\renewcommand\Affilfont{\color{color0}\normalfont\sffamily\fontsize{7}{8}\selectfont}
+\setlength{\affilsep}{12pt} 
+\renewcommand\Authfont{\color{color0}\normalfont\sffamily\bfseries\fontsize{9}{10}\selectfont}
+\renewcommand\Affilfont{\color{color0}\normalfont\sffamily\fontsize{9}{10}\selectfont}
 \makeatletter
-% comment the following line to have affiliations on separate lines
-\renewcommand\AB@affilsepx{; \protect\Affilfont}
+% uncomment the following line to have affiliations on same line
+% \renewcommand\AB@affilsepx{; \protect\Affilfont}
 \renewcommand\Authands{, and }
 
 %% Section/subsection/paragraph set-up
 \RequirePackage[explicit]{titlesec}
 \renewcommand{\thesubsection}{\Alph{subsection}}
-
-%\usepackage[explicit]{titlesec}
-% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before>}[<after>]
-% \titleformat{\section}[hang]{\normalfont\Large\bfseries}%
-%     {\thechapter.}{4pt}%
-%     {#1 \arabic{section}.}
-% \makeatletter
-% \renewcommand\thesection{}
-% \renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
-% \makeatother
-% \titleformat{\section}[hang]
-%   {\large\sffamily\bfseries}
-%   {\thesection.}
-%   {0.5em}
-%   {#1.}
-%   []
 
 \titleformat{\section}
   {\large\sffamily\bfseries}
@@ -232,11 +201,11 @@
   {0em}
   {#1}
   []  
-\titleformat{\subsection}[runin]
+\titleformat{\subsection}
   {\sffamily\bfseries}
   {\thesubsection.}
-  {0.5em}
-  {#1. }
+  {0em}
+  {#1}
   []
 \titleformat{\subsubsection}[runin]
   {\sffamily\small\bfseries\itshape}
@@ -250,22 +219,17 @@
   {0em}
   {#1} 
 \titlespacing*{\section}{0pc}{3ex \@plus4pt \@minus3pt}{5pt}
-\titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{2pt}
+\titlespacing*{\subsection}{0pc}{3ex \@plus4pt \@minus2pt}{4pt}
 \titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{2pt}
 \titlespacing*{\paragraph}{0pc}{1.5ex \@plus2pt \@minus1pt}{12pt}
 
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
 %% Figure caption style
-\DeclareCaptionFormat{smallformat}{\normalfont\sffamily\fontsize{7}{9}\selectfont#1#2#3}
+\DeclareCaptionFormat{smallformat}{\normalfont\sffamily\fontsize{9}{12}\selectfont#1#2#3}
 \DeclareCaptionFormat{largeformat}{\normalfont\sffamily\fontsize{9}{12}\selectfont#1#2#3}
 \captionsetup*{format=smallformat}
-
-% %% Watermark 
-\usepackage[printwatermark]{xwatermark}
-\AtBeginDocument{%
-  \ifwatermark%
-  \newwatermark[allpages,color=gray!20,angle=45,scale=3,xpos=0,ypos=0]{DRAFT}
-  \fi
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Royle lab parts adapted from PNAS - END %%
@@ -281,7 +245,7 @@
 \setlength{\bibsep}{0.0pt}
 \bibliographystyle{RoyleLab-StyleBib.bst}
 \renewcommand{\bibsection}{} % Remove header
-\renewcommand\bibfont{\normalfont\sffamily\fontsize{6}{8}\selectfont} % set font to be sans serif
+\renewcommand\bibfont{\normalfont\sffamily\fontsize{9}{10}\selectfont} % set font to be sans serif
 
 \makeatletter 
 \renewcommand\@biblabel[1]{ #1.} % Remove brackets from label
@@ -312,62 +276,38 @@
     \par\vskip 1.4em}
 
 %% Abstract and keywords
-\def\abstract{%\vspace{-.3em}
-  \ifbfabstract\small\bfseries\else\footnotesize\fi}
+\def\abstract{\vspace{2em}
+  \ifbfabstract\normalsize\bfseries\else\footnotesize\fi}
 
 \def\endabstract{\vspace{1.0em}\par\normalsize}
 
-% \def\keywords{%\vspace{-.3em}
-% \noindent\ifbfabstract\Affilfont\bfseries\itshape\else\footnotesize\fi  Keywords --- }
-% \def\endkeywords{\vspace{0.3em}\par\normalsize}
-
-% \newcommand{\at}{\makeatletter @\makeatother}
-% \def\corrauthor{%\vspace{-.3em}
-% \noindent\ifbfabstract\Affilfont\bfseries\itshape\else\footnotesize\fi  Correspondence --- }
-% \def\endcorrauthor{\vspace{0.3em}\par\normalsize}
-
-\def\keywords{%\vspace{-.3em}
-\ifbfabstract\Affilfont\bfseries\else\footnotesize\fi}
-\def\endkeywords{\vspace{0.3em}\par\normalsize}
+\def\keywords{
+\ifbfabstract\Affilfont\normalfont\else\footnotesize\fi}
+\def\endkeywords{\vspace{1em}\par\normalsize}
 
 \newcommand{\at}{\makeatletter @\makeatother}
-\def\corrauthor{%\vspace{-.3em}
-\noindent\ifbfabstract\Affilfont\bfseries\else\footnotesize\fi  Correspondence:\itshape}
-\def\endcorrauthor{\vspace{0.3em}\par\normalsize}
+\def\corrauthor{
+\noindent\ifbfabstract\Affilfont\normalfont\else\footnotesize\fi  Correspondence:\itshape}
+\def\endcorrauthor{\vspace{1em}\par\normalsize}
 
-\def\acknowledgements{\vspace{1em}
+\def\acknowledgements{
 \Affilfont\bfseries ACKNOWLEDGEMENTS\par\mdseries}
-\def\endacknowledgements{\vspace{0.3em}\par\normalsize}
+\def\endacknowledgements{\vspace{1em}\par\normalsize}
 
-\def\contributions{\vspace{.3em}
+\def\contributions{
 \Affilfont\bfseries AUTHOR CONTRIBUTIONS\par\mdseries}
-\def\endcontributions{\vspace{0.3em}\par\normalsize}
+\def\endcontributions{\vspace{1em}\par\normalsize}
 
-\def\interests{\vspace{.3em}
+\def\interests{
 \Affilfont\bfseries COMPETING FINANCIAL INTERESTS\par\mdseries}
-\def\endinterests{\vspace{0.3em}\par\normalsize}
+\def\endinterests{\vspace{1em}\par\normalsize}
 
-%% environments
-\newdimen\tmpitemindent
-\def\QED{\mbox{\rule[0pt]{1.5ex}{1.5ex}}}
-\def\proof{\noindent\hspace{2em}{\it Proof: }}
-\def\endproof{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
-\def\@begintheorem#1#2{\tmpitemindent\itemindent\topsep 0pt\rm\trivlist
-    \item[\hskip \labelsep{\indent\it #1\ #2:}]\itemindent\tmpitemindent}
-\def\@opargbegintheorem#1#2#3{\tmpitemindent\itemindent\topsep 0pt\rm \trivlist
-    \item[\hskip\labelsep{\indent\it #1\ #2\ \rm(#3)}]\itemindent\tmpitemindent}
-\def\@endtheorem{\endtrivlist\unskip}
+\onecolumn \sloppy \flushbottom
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
-\newtheorem{corollary}{Corollary}
-
-\twocolumn \sloppy \flushbottom
-
-%% Allows BIOGRAPHY and leaves place for picture
+%% Allows to enter BIOGRAPHY leaving place for picture
 %%
 \newenvironment{biography}[1]{%
-\footnotesize\unitlength 1mm\bigskip\bigskip\bigskip\parskip=0pt\par%
+\normalsize\unitlength 1mm\bigskip\bigskip\bigskip\parskip=0pt\par%
 \rule{0pt}{39mm}\vspace{-39mm}\par%   guarantees correct page breaking
 \noindent\setbox0\hbox{\framebox(25,32){}}%   box containing the frame
 \ht0=37mm\count10=\ht0\divide\count10 by\baselineskip%  calculates lines
@@ -388,15 +328,15 @@
 \pagestyle{fancy}		  % Enables the custom headers/footers
 
 \def\aBioRXiv{{\footnotesize
-    \footerfont \@leadauthor\ifnum \value{authors} > 1\hspace{2pt}\textit{et al.}\fi\hspace{7pt}|\hspace{7pt}bio\textcolor{red}{R}$\chi$iv\hspace{7pt}|\hspace{7pt}\today\hspace{7pt}|\hspace{7pt}\thepage\textendash\pageref{LastPage}
+    \footerfont \@leadauthor\ifnum \value{authors} > 1\hspace{2pt}\textit{et al.}\fi\hspace{7pt}|\hspace{7pt}\today\hspace{7pt}|\hspace{7pt}\thepage\textendash\pageref{LastPage}
   }}
 
 \def\bBioRXiv{{\footnotesize
-    \footerfont \thepage\hspace{7pt}|\hspace{7pt}bio\textcolor{red}{R}$\chi$iv
+    \footerfont \thepage\hspace{7pt}|
   }}
   
 \def\cBioRXiv{{\footnotesize
-    \footerfont bio\textcolor{red}{R}$\chi$iv\hspace{7pt}|\hspace{7pt}\thepage
+    \footerfont |\hspace{7pt}\thepage
   }}
   
 \def\bSupInf{{\footnotesize
