@@ -12,22 +12,22 @@ The ideal template should be able to switch between these two manuscript layouts
 
 ## Use
 
-To use, just clone this repo and import into Overleaf or a directory on your own computer to use a local LaTeX installation. You do not require the `img` folder nor the `README`.
+To use, just clone this repo and import into Overleaf or a directory on your own computer to use a local LaTeX installation. You do not require the following files and folders: `img`, `Examples`, `README`.
 
 Writing your manuscript in `01_Article_MainText.tex` and then comment line 2 or 3 of `00_Article_Merge.tex` to select between outputs. There are optional Supplementary tex files that can also be edited. If they are not required, comment the lines in `00_Article_Merge.tex`.
 
 
 ## Contributions
 
-The initial overleaf template was forked from the template created by Heriques lab [available here](https://www.overleaf.com/latex/templates/henriqueslab-biorxiv-template/nyprsybwffws). This is a modification of the PNAS template which is also available on Overleaf. We made a few changes to the HenriquesLab bioRxiv template and made it possible to easily generate a journal submission version.
+The initial overleaf template was forked from the template created by Henriques lab [available here](https://www.overleaf.com/latex/templates/henriqueslab-biorxiv-template/nyprsybwffws). This is a modification of the PNAS template which is also available on Overleaf. We made a few changes to the HenriquesLab bioRxiv template and made it possible to easily generate a journal submission version.
 
 ## What do they look like?
 
 ### Preprint version (for bioRxiv)
 
-![img](img/Example_Preprint.png?raw=true "image")
+![img](img/Example_bioRxiv.png?raw=true "image")
 
 ### Journal submission version
 
-![img](img/Example_Submission.png?raw=true "image")
+![img](img/Example_submit.png?raw=true "image")
 
