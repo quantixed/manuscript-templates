@@ -10,9 +10,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{RoyleLab-StyleBioRxiv}
   [2019/04/12 revision by SJR]
-
+% \AtEndOfClass{\RequirePackage{microtype}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions*
 %% Load base class
-\LoadClass[a4paper]{article}
+\LoadClass{extarticle}
 
 %% define new needed boolean variables
 \newif\if@tmptwocolumn  \@tmptwocolumnfalse
@@ -54,6 +56,8 @@
 \RequirePackage{cleveref}
 \RequirePackage{gensymb}
 \RequirePackage{textcomp}
+% no hyphenation
+\usepackage[none]{hyphenat}
 % this line causes a l3regex obsolete warning - problem seems Overleaf-side
 \RequirePackage[version=4]{mhchem}
 %% Units
@@ -86,6 +90,7 @@
 \crefname{figure}{Figure}{figures}
 \crefname{section}{Sup. Note}{notes}
 \crefname{suppfigure}{Supplementary Figure}{supplementary figures}
+\crefname{supptable}{Supplementary Table}{supplementary tables}
 % \crefname{chapter}{Chapter}{Chapters}
 % \crefname{section}{Section}{Sections}
 % \crefname{subsection}{Section}{Sections}
@@ -176,7 +181,7 @@
 
 \newcommand{\shorttitle}[1]{\def\@shorttitle{#1}}
 \newcommand{\leadauthor}[1]{\def\@leadauthor{#1}}
-%\newcommand{\headerfont}{\normalfont\sffamily\fontsize{7}{9} \selectfont}
+\newcommand{\headerfont}{\normalfont\sffamily\fontsize{7}{9} \selectfont}
 \newcommand{\footerfont}{\normalfont\sffamily\fontsize{7}{9} \selectfont}
 \newcommand{\titlefont}{\fontfamily{lmss}\bfseries\fontsize{18pt}{20pt}\selectfont}
 \newcommand{\dropcapfont}{\fontfamily{lmss}\bfseries\fontsize{22pt}{24pt}\selectfont}
@@ -221,13 +226,13 @@
 %   []
 
 \titleformat{\section}
-  {\large\sffamily\bfseries}
+  {\Large\sffamily\bfseries}
   {}
   {0em}
   {Supplementary Note \thesection: #1}
   []
 \titleformat{name=\section,numberless}
-  {\large\sffamily\bfseries}
+  {\Large\sffamily\bfseries}
   {}
   {0em}
   {#1}
@@ -306,14 +311,14 @@
 
 \def\@maketitle{\newpage
 %  \begin{left}
-    \vskip0.2em{\huge\bfseries\@title\par}\vskip1.0em%
+    \vskip0.2em{\Huge\bfseries\@title\par}\vskip1.0em%
     {\lineskip.5em\large\@author\par}
 %  \end{left}
     \par\vskip 1.4em}
 
 %% Abstract and keywords
 \def\abstract{%\vspace{-.3em}
-  \ifbfabstract\small\bfseries\else\footnotesize\fi}
+  \ifbfabstract\normalsize\bfseries\else\small\fi}
 
 \def\endabstract{\vspace{1.0em}\par\normalsize}
 

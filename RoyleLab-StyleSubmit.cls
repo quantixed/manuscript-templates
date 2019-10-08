@@ -9,12 +9,15 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{RoyleLab-StyleSubmit}
   [2019/04/12 revision by SJR]
-
+% \AtEndOfClass{\RequirePackage{microtype}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\ProcessOptions*
 %% Load base class
-\LoadClass[a4paper]{article}
+\LoadClass{extarticle}
 
 %% define new needed boolean variables
 \newif\if@tmptwocolumn  \@tmptwocolumnfalse
+\newif\if@times         \@timesfalse
 \newif\if@helvet         \@helvetfalse
 
 %% Options
@@ -26,6 +29,7 @@
 \DeclareOption{watermark}{\watermarktrue}
 
 \DeclareOption{draft}{\PassOptionsToClass{draft}{article}}
+\DeclareOption{times}{\@timestrue}
 \DeclareOption{helvet}{\@helvettrue}
 \DeclareOption{twoside}{\@twosidetrue}
 \DeclareOption{twocolumn}{\@tmptwocolumntrue}
@@ -50,6 +54,8 @@
 \RequirePackage{cleveref}
 \RequirePackage{gensymb}
 \RequirePackage{textcomp}
+% no hyphenation
+\usepackage[none]{hyphenat}
 % this line causes a l3regex obsolete warning - problem seems Overleaf-side
 \RequirePackage[version=4]{mhchem}
 %% Units
@@ -65,8 +71,8 @@
 \RequirePackage[misc]{ifsym} % For the \Letter symbol
 \RequirePackage{bbding} % For the \Envelope symbol
 \RequirePackage[a4paper,
-                total={160mm,247mm},
-                left=25mm,
+                total={170mm,247mm},
+                left=20mm,
                 top=25mm]{geometry}
 \RequirePackage[labelfont={bf,sf},%
                 labelsep=period,%
@@ -85,12 +91,21 @@
 \crefname{figure}{Figure}{figures}
 \crefname{section}{Sup. Note}{notes}
 \crefname{suppfigure}{Supplementary Figure}{supplementary figures}
+\crefname{supptable}{Supplementary Table}{supplementary tables}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Royle lab dependencies - End %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Fonts
+\if@helvet\RequirePackage{helvet}\fi
+
 %% sizes and margins
+%\topmargin      -16.0mm
+%\oddsidemargin  -11.0mm
+%\evensidemargin -11.0mm
+%\textwidth        175mm
+%\textheight       243mm
 \columnsep          7mm
 \headsep          6.3mm
 \headheight        12pt
