@@ -4,7 +4,7 @@
 %%
 %% Class files for journal submission
 %%
-%% 
+%%
 \typeout{Document Class `RoyleLab' <12-April-2019>.}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{RoyleLab-StyleSubmit}
@@ -49,9 +49,9 @@
 \RequirePackage[latin1,utf8]{inputenc}
 \RequirePackage[english]{babel}
 \RequirePackage{lmodern}
-\RequirePackage{siunitx}
+\RequirePackage[detect-all=true]{siunitx}
 \RequirePackage{textgreek}
-\RequirePackage{cleveref}
+%\RequirePackage{cleveref}
 \RequirePackage{gensymb}
 \RequirePackage{textcomp}
 % no hyphenation
@@ -61,6 +61,7 @@
 %% Units
 \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
 \DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\gee{\textit{g}}
 \DeclareSIUnit\Units{\textnormal{U}}
 \RequirePackage[scaled]{helvet}
 \RequirePackage[T1]{fontenc}
@@ -192,7 +193,7 @@
 \definecolor{color2}{RGB}{16,131,16} %
 
 %% Author and affiliation
-\setlength{\affilsep}{12pt} 
+\setlength{\affilsep}{12pt}
 \renewcommand\Authfont{\color{color0}\normalfont\sffamily\bfseries\fontsize{9}{10}\selectfont}
 \renewcommand\Affilfont{\color{color0}\normalfont\sffamily\fontsize{9}{10}\selectfont}
 \makeatletter
@@ -215,7 +216,7 @@
   {}
   {0em}
   {#1}
-  []  
+  []
 \titleformat{\subsection}
   {\sffamily\bfseries}
   {\thesubsection.}
@@ -227,12 +228,12 @@
   {\thesubsubsection.}
   {0.5em}
   {#1. }
-  []    
+  []
 \titleformat{\paragraph}[runin]
   {\sffamily\small\bfseries}
   {}
   {0em}
-  {#1} 
+  {#1}
 \titlespacing*{\section}{0pc}{3ex \@plus4pt \@minus3pt}{5pt}
 \titlespacing*{\subsection}{0pc}{3ex \@plus4pt \@minus2pt}{4pt}
 \titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{2pt}
@@ -262,7 +263,7 @@
 \renewcommand{\bibsection}{} % Remove header
 \renewcommand\bibfont{\normalfont\sffamily\fontsize{9}{10}\selectfont} % set font to be sans serif
 
-\makeatletter 
+\makeatletter
 \renewcommand\@biblabel[1]{ #1.} % Remove brackets from label
 \def\tagform@#1{\maketag@@@{\bfseries(\ignorespaces#1\unskip\@@italiccorr)}}
 \renewcommand{\eqref}[1]{\textup{{\normalfont Eq.~(\ref{#1}}\normalfont)}}
@@ -349,19 +350,19 @@
 \def\bBioRXiv{{\footnotesize
     \footerfont \thepage\hspace{7pt}|
   }}
-  
+
 \def\cBioRXiv{{\footnotesize
     \footerfont |\hspace{7pt}\thepage
   }}
-  
+
 \def\bSupInf{{\footnotesize
     \footerfont \thepage\hspace{7pt}|\hspace{7pt}Supplementary Information
   }}
-  
+
 \def\cSupInf{{\footnotesize
     \footerfont Supplementary Information\hspace{7pt}|\hspace{7pt}\thepage
   }}
-   
+
 \def\dAuthor{{\footnotesize
     \footerfont \@leadauthor\ifnum \value{authors} > 1\hspace{2pt}\textit{et al.}\fi\hspace{7pt}|\hspace{7pt}\@shorttitle
   }}

@@ -51,9 +51,9 @@
 \RequirePackage[latin1,utf8]{inputenc}
 \RequirePackage[english]{babel}
 \RequirePackage{lmodern}
-\RequirePackage{siunitx}
+\RequirePackage[detect-all=true]{siunitx}
 \RequirePackage{textgreek}
-\RequirePackage{cleveref}
+%\RequirePackage{cleveref}
 \RequirePackage{gensymb}
 \RequirePackage{textcomp}
 % no hyphenation
@@ -63,7 +63,9 @@
 %% Units
 \DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
 \DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\gee{\textit{g}}
 \DeclareSIUnit\Units{\textnormal{U}}
+
 \RequirePackage[scaled]{helvet}
 \RequirePackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -171,7 +173,7 @@
 \setlength{\belowcaptionskip}{-10pt} % reduces spacing between figure legend and text
 
 \renewcommand{\topfraction}{0.99}
-\renewcommand{\floatpagefraction}{0.5}
+\renewcommand{\floatpagefraction}{0.8} % changed from 0.5 because single column figs bigger than 0.5 were excluding all text in that column
 \renewcommand{\bottomfraction}{0.99}
 \renewcommand{\textfraction}{0.01}
 
@@ -310,10 +312,10 @@
 }
 
 \def\@maketitle{\newpage
-%  \begin{left}
+  \begin{flushleft}
     \vskip0.2em{\Huge\bfseries\@title\par}\vskip1.0em%
     {\lineskip.5em\large\@author\par}
-%  \end{left}
+  \end{flushleft}
     \par\vskip 1.4em}
 
 %% Abstract and keywords
