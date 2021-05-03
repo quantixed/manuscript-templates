@@ -63,6 +63,10 @@
 \DeclareSIUnit\Molar{\textsc{m}}
 \DeclareSIUnit\gee{\textit{g}}
 \DeclareSIUnit\Units{\textnormal{U}}
+\DeclareSIUnit\rpm{\textnormal{rpm}}
+\DeclareSIUnit\pixel{\textnormal{px}}
+\DeclareSIUnit\electron{\textnormal{e\textsuperscript{--}}}
+
 \RequirePackage[scaled]{helvet}
 \RequirePackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
