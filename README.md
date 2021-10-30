@@ -12,22 +12,34 @@ The ideal template should be able to switch between these two manuscript layouts
 
 ## Use
 
-To use, just clone this repo and import into Overleaf or a directory on your own computer to use a local LaTeX installation. You do not require the following files and folders: `img`, `Examples`, `README`.
+To use, just clone this repo and import into Overleaf or a directory on your own computer to use a local LaTeX installation.
+The following files and folders are not required: `img`, `Examples`, `README`.
 
-Writing your manuscript in `01_Article_MainText.tex` and then comment line 2 or 3 of `00_Article_Merge.tex` to select between outputs. There are optional Supplementary tex files that can also be edited. If they are not required, comment the lines in `00_Article_Merge.tex`.
+Write your manuscript in `01_Article_MainText.tex` and then comment either line 2 or 3 of `00_Article_Merge.tex` to select between outputs.
+There are optional Supplementary tex files that can also be edited.
+If they are not required, comment the appropriate lines in `00_Article_Merge.tex`.
 
 Tested on TeXLive 2020 with pdfLaTeX compiler.
 
 
 ## Contributions
 
-The initial overleaf template was forked from the template created by Henriques lab [available here](https://www.overleaf.com/latex/templates/henriqueslab-biorxiv-template/nyprsybwffws). This is a modification of the PNAS template which is also available on Overleaf. We made a few changes to the HenriquesLab bioRxiv template and made it possible to easily generate a journal submission version.
+The initial overleaf template was forked from the template created by Henriques lab [available here](https://www.overleaf.com/latex/templates/henriqueslab-biorxiv-template/nyprsybwffws).
+This is a modification of the PNAS template (also available on Overleaf) which is widely used on bioRxiv.
+We have made a few changes to the HenriquesLab bioRxiv template and made it possible to easily generate a journal submission version.
+
+Changes include:
+
+- genuine bioRxiv logo used in the footer
+- support for ORCiDs using `\orcidlink`
+- Helvetica for readability
+- greater range of custom units
 
 ## What do they look like?
 
 ### Preprint version (for bioRxiv)
 
-![img](img/Example_bioRxi.png?raw=true "image")
+![img](img/Example_bioRxiv.png?raw=true "image")
 
 ### Journal submission version
 

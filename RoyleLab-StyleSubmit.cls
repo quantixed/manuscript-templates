@@ -88,6 +88,7 @@
 
 %% Hyperlinking
 \RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
+\RequirePackage{orcidlink}
 
 %% Ref to Sup
 \RequirePackage{nameref}
@@ -106,11 +107,6 @@
 \if@helvet\RequirePackage{helvet}\fi
 
 %% sizes and margins
-%\topmargin      -16.0mm
-%\oddsidemargin  -11.0mm
-%\evensidemargin -11.0mm
-%\textwidth        175mm
-%\textheight       243mm
 \columnsep          7mm
 \headsep          6.3mm
 \headheight        12pt
@@ -193,13 +189,12 @@
 %% Set document color scheme
 \definecolor{black50}{gray}{0.5} % 50% black for hrules
 \definecolor{color0}{RGB}{0,0,0} % Base
-\definecolor{color1}{RGB}{59,90,198} % author email, doi
-\definecolor{color2}{RGB}{16,131,16} %
+\definecolor{color1}{RGB}{30,30,30} % author email, doi
 
 %% Author and affiliation
 \setlength{\affilsep}{12pt}
-\renewcommand\Authfont{\color{color0}\normalfont\sffamily\bfseries\fontsize{9}{10}\selectfont}
-\renewcommand\Affilfont{\color{color0}\normalfont\sffamily\fontsize{9}{10}\selectfont}
+\renewcommand\Authfont{\color{color1}\normalfont\sffamily\bfseries\fontsize{9}{10}\selectfont}
+\renewcommand\Affilfont{\color{color1}\normalfont\sffamily\fontsize{9}{10}\selectfont}
 \makeatletter
 % uncomment the following line to have affiliations on same line
 % \renewcommand\AB@affilsepx{; \protect\Affilfont}
