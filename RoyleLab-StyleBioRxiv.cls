@@ -56,8 +56,10 @@
 %\RequirePackage{cleveref}
 \RequirePackage{gensymb}
 \RequirePackage{textcomp}
-% no hyphenation
-\usepackage[none]{hyphenat}
+% for no hyphenation add [none] option
+\usepackage{hyphenat}
+% reduce the spacing after a full-stop
+%\frenchspacing
 % this line causes a l3regex obsolete warning - problem seems Overleaf-side
 \RequirePackage[version=4]{mhchem}
 %% Units
@@ -215,11 +217,11 @@
   {0em}
   {#1}
   []  
-\titleformat{\subsection}[runin]
+\titleformat{\subsection}
   {\sffamily\bfseries}
   {\thesubsection.}
   {0.5em}
-  {#1. }
+  {#1}
   []
 \titleformat{\subsubsection}[runin]
   {\sffamily\small\bfseries\itshape}
