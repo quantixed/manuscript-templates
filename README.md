@@ -27,7 +27,7 @@ The initial overleaf template was forked from the template created by Henriques 
 
 ### Preprint version (for bioRxiv)
 
-![img](img/Example_bioRxi.png?raw=true "image")
+![img](img/Example_bioRxiv.png?raw=true "image")
 
 ### Journal submission version
 
