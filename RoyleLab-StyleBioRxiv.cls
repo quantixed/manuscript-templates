@@ -87,6 +87,7 @@
 
 %% Hyperlinking
 \RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
+\RequirePackage{orcidlink}
 
 %% Ref to Sup
 \RequirePackage{nameref}
@@ -96,12 +97,6 @@
 \crefname{section}{Sup. Note}{notes}
 \crefname{suppfigure}{Supplementary Figure}{supplementary figures}
 \crefname{supptable}{Supplementary Table}{supplementary tables}
-% \crefname{chapter}{Chapter}{Chapters}
-% \crefname{section}{Section}{Sections}
-% \crefname{subsection}{Section}{Sections}
-% \crefname{subsubsection}{Section}{Sections}
-% \crefname{figure}{Figure}{Figures}
-% \crefname{table}{Table}{Tables}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Royle lab dependencies - End %%
@@ -111,11 +106,6 @@
 \if@helvet\RequirePackage{helvet}\fi
 
 %% sizes and margins
-%\topmargin      -16.0mm
-%\oddsidemargin  -11.0mm
-%\evensidemargin -11.0mm
-%\textwidth        175mm
-%\textheight       243mm
 \columnsep          7mm
 \headsep          6.3mm
 \headheight        12pt
@@ -198,13 +188,12 @@
 %% Set document color scheme
 \definecolor{black50}{gray}{0.5} % 50% black for hrules
 \definecolor{color0}{RGB}{0,0,0} % Base
-\definecolor{color1}{RGB}{59,90,198} % author email, doi
-\definecolor{color2}{RGB}{16,131,16} %
+\definecolor{color1}{RGB}{40,40,40} % author email, doi
 
 %% Author and affiliation
 \setlength{\affilsep}{8.5pt} % 16.5pts between base of author line and base of affil line
-\renewcommand\Authfont{\color{color0}\normalfont\sffamily\bfseries\fontsize{9}{11}\selectfont}
-\renewcommand\Affilfont{\color{color0}\normalfont\sffamily\fontsize{7}{8}\selectfont}
+\renewcommand\Authfont{\color{color1}\normalfont\sffamily\bfseries\fontsize{9}{11}\selectfont}
+\renewcommand\Affilfont{\color{color1}\normalfont\sffamily\fontsize{7}{8}\selectfont}
 \makeatletter
 % comment the following line to have affiliations on separate lines
 \renewcommand\AB@affilsepx{; \protect\Affilfont}
@@ -213,22 +202,6 @@
 %% Section/subsection/paragraph set-up
 \RequirePackage[explicit]{titlesec}
 \renewcommand{\thesubsection}{\Alph{subsection}}
-
-%\usepackage[explicit]{titlesec}
-% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before>}[<after>]
-% \titleformat{\section}[hang]{\normalfont\Large\bfseries}%
-%     {\thechapter.}{4pt}%
-%     {#1 \arabic{section}.}
-% \makeatletter
-% \renewcommand\thesection{}
-% \renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
-% \makeatother
-% \titleformat{\section}[hang]
-%   {\large\sffamily\bfseries}
-%   {\thesection.}
-%   {0.5em}
-%   {#1.}
-%   []
 
 \titleformat{\section}
   {\Large\sffamily\bfseries}
@@ -326,15 +299,6 @@
   \ifbfabstract\normalsize\bfseries\else\small\fi}
 
 \def\endabstract{\vspace{1.0em}\par\normalsize}
-
-% \def\keywords{%\vspace{-.3em}
-% \noindent\ifbfabstract\Affilfont\bfseries\itshape\else\footnotesize\fi  Keywords --- }
-% \def\endkeywords{\vspace{0.3em}\par\normalsize}
-
-% \newcommand{\at}{\makeatletter @\makeatother}
-% \def\corrauthor{%\vspace{-.3em}
-% \noindent\ifbfabstract\Affilfont\bfseries\itshape\else\footnotesize\fi  Correspondence --- }
-% \def\endcorrauthor{\vspace{0.3em}\par\normalsize}
 
 \def\keywords{%\vspace{-.3em}
 \ifbfabstract\Affilfont\bfseries\else\footnotesize\fi}
