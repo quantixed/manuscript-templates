@@ -52,6 +52,7 @@
 \RequirePackage[english]{babel}
 \RequirePackage{lmodern}
 \RequirePackage[detect-all=true]{siunitx}
+\RequirePackage{textgreek}
 % for no hyphenation add [none] option
 \if@submit
   \usepackage[none]{hyphenat}
