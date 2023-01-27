@@ -94,6 +94,7 @@
   \linenumbers
 \fi
 
+\PassOptionsToPackage{hyphens}{url}
 %% Hyperlinking
 \RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
 \RequirePackage{orcidlink}
