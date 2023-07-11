@@ -43,7 +43,7 @@
  %
  % Works with identical authors and year are further sorted by
  %   citation key, to preserve any natural sequence.
- % RoyleLab Mod: Uncomment lines 1312-21 and 1328-9 for appearance sort
+ % RoyleLab Mod: This file differs from our regular bst because the presort function resulted in "You can't pop an empty literal stack for entry" error.
 ENTRY
   { address
     author
@@ -415,18 +415,10 @@ FUNCTION {n.dashify}
 }
 
 FUNCTION {format.date}
-{ year duplicate$ empty$
-    { "empty year in " cite$ * warning$
-       pop$ "" }
-    'skip$
-  if$
-  month empty$
-    'skip$
-    { month
-      " " * swap$ *
-    }
-  if$
-  extra.label *
+{ year empty$
+    { "" }
+      { year "(" swap$ * ")" *}
+    if$
 }
 
 FUNCTION {format.btitle}
@@ -701,6 +693,8 @@ FUNCTION {article}
   format.authors "author" output.check
   author format.key output
   new.block
+  format.date "year" output.check
+  new.block
   format.title "title" output.check
   new.block
   crossref missing$
@@ -709,7 +703,6 @@ FUNCTION {article}
         { format.vol.num.pages output }
         { format.vol.num.eid output }
       if$
-      format.date "year" output.check
     }
     { format.article.crossref output.nonnull
       eid empty$
@@ -1309,24 +1302,34 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-%INTEGERS { seq.num }
-%
-%FUNCTION {init.seq}
-%{ #0 'seq.num :=}
-%
-%EXECUTE {init.seq}
-%FUNCTION {int.to.fix}
-%{ "000000000" swap$ int.to.str$ *
-%  #-1 #10 substring$
-%}
-
 FUNCTION {presort}
 { calc.label
   label sortify
   "    "
   *
-%  seq.num #1 + 'seq.num :=
-%  seq.num int.to.fix
+  type$ "book" =
+  type$ "inbook" =
+  or
+    'author.editor.sort
+    { type$ "proceedings" =
+        'editor.organization.sort
+        { type$ "manual" =
+            'author.organization.sort
+            'author.sort
+          if$
+        }
+      if$
+    }
+  if$
+  "    "
+  *
+  year field.or.null sortify
+  *
+  "    "
+  *
+  cite$
+  *
+  #1 entry.max$ substring$
   'sort.label :=
   sort.label *
   #1 entry.max$ substring$
