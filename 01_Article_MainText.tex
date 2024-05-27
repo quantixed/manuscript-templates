@@ -59,6 +59,33 @@ It is possible to add a one-column Figure like this (Figure \ref{fig:nucleus}).
 To add Supplementary Figures you can do either of these things and have them at the end of the end of the paper (Supplementary Figure \ref{suppfig:endosome}).
 Or like this (Supplementary Figure \ref{videosupp:lysosome}).
 
+\subsection*{Working with tables and equations}
+
+References to a table can be included here like this (Table \ref{tab:t1}.
+If you have a Supplementary Table sections you can reference one of those tables like this (Supplementary Table \ref{supptab:st1}
+
+\begin{table}[h] % h means "here"
+    \centering
+    \begin{tabular}{l|l}
+         Base & Letter\\
+         \hline
+         Adenine & A\\
+         Cytosine & C\\
+         Guanine & G\\
+         Thymidine & T\\
+    \end{tabular}
+    \caption{The DNA alphabet}
+    \label{tab:t1}
+\end{table}
+
+To include an equation, you can write in-line math like this, $e = mc^2$, or you can reference an equation like this (Equation \ref{eqn:euler}).
+
+\begin{equation}
+    \centering
+    e^{\pi i} + 1 = 0
+    \label{eqn:euler}
+\end{equation}
+
 \lipsum[10]
 
 \subsection*{Subsections are written like this}
@@ -101,8 +128,10 @@ You can put your work in the context of other published work \citep{brenner_uga:
 
 Details of plasmids are usually first.
 Followed by cell biology section.
-We have special units defied for molar and for units, e.g. \SI{1}{\Molar} sucrose, \SI{10}{\Units\per\milli\litre}.
-Otherwise use siunitx for everything else. \SI{37}{\degreeCelsius} and what-not.
+We have special units defied for: molar, units, spin speed, electron and Angstrom, i.e. \SI{1}{\Molar} sucrose, which can also be written \SI{1}{\molar} sucrose, \SI{10}{\Units\per\milli\litre} restriction enzyme, centrifuge at \SI{10000}{\gee} or \SI{800}{\rpm}, this at \SI{100}{\kilo\electron}, a resolution of \SI{1.8}{\angstrom}.
+Otherwise use \texttt{siunitx} for everything else, \SI{10}{\micro\metre} and \SI{37}{\degreeCelsius} and what-not.
+
+You can use \ce{Na2HPO4} and \ce{H2O}, for chemical names.
 
 \subsection*{Cell biology}
 
