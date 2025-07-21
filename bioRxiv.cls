@@ -71,6 +71,7 @@
 \DeclareSIUnit\rpm{\textnormal{rpm}}
 \DeclareSIUnit\pixel{\textnormal{px}}
 \DeclareSIUnit\electron{\textnormal{e\textsuperscript{--}}}
+\DeclareSIUnit\angstrom{\protect \text {Å}}
 
 \RequirePackage[scaled]{helvet}
 \RequirePackage[T1]{fontenc}
